@@ -16,8 +16,8 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: before script
       run: |
-        - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-        - python get-pip.py
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        python get-pip.py
           
     - name: install dependencies
       run: pip install -r requirements.txt
