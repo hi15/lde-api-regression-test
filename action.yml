@@ -1,0 +1,26 @@
+name: Regression Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # Runs a set of commands using the runners shell
+    - name: before script
+      run: |
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        python get-pip.py
+          
+    - name: install dependencies
+      run: pip install -r requirements.txt
+      
+    - name: install dependencies
+      run: python manage.py compare
